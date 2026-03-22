@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AP Police — AI Complaint Portal</title>
+
+<!-- ── CDN DEPENDENCIES ── -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script>
+  const { useState, useEffect, useRef, useCallback, useMemo } = React;
+</script>
+<script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-auth-compat.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
+
+<!-- ── STYLES ── -->
+<link rel="stylesheet" href="styles/main.css"/>
+
+</head>
+<body>
+<div id="root"></div>
+
+<!-- 1. DATA & CONSTANTS -->
+<script type="text/babel" src="data/constants.js"></script>
+
+<!-- 2. UTILITIES + AUTH + APIs -->
+<script type="text/babel" src="utils/helpers.js"></script>
+<script type="text/babel" src="utils/authAndApis.js"></script>
+
+<!-- 3. REUSABLE UI COMPONENTS -->
+<script type="text/babel" src="components/ui-components.js"></script>
+
+<!-- 4. MODALS -->
+<script type="text/babel" src="components/modals/EvidenceViewerModal.js"></script>
+<script type="text/babel" src="components/modals/FIRModal.js"></script>
+<script type="text/babel" src="components/modals/OfficerMessaging.js"></script>
+<script type="text/babel" src="components/modals/WitnessCoordModal.js"></script>
+<script type="text/babel" src="components/modals/ReassignModal.js"></script>
+<script type="text/babel" src="components/modals/NotificationModal.js"></script>
+<script type="text/babel" src="components/modals/SLAAlerts.js"></script>
+<script type="text/babel" src="components/modals/StatusNotesPanel.js"></script>
+
+<!-- 5. OFFICER COMPONENTS -->
+<script type="text/babel" src="components/officer/OfficersByLocation.js"></script>
+<script type="text/babel" src="components/officer/OfficerDashboard.js"></script>
+
+<!-- 6. CITIZEN COMPONENTS -->
+<script type="text/babel" src="components/citizen/WAPanel.js"></script>
+<script type="text/babel" src="components/citizen/CitizenPortal.js"></script>
+
+<!-- 7. ADMIN ANALYTICS MODULES -->
+<script type="text/babel" src="components/admin/CommandDashboard.js"></script>
+<script type="text/babel" src="components/admin/AutomatedReports.js"></script>
+<script type="text/babel" src="components/admin/CrimeHeatmap.js"></script>
+<script type="text/babel" src="components/admin/OfficerPerformance.js"></script>
+<script type="text/babel" src="components/admin/TrendAnalysis.js"></script>
+<script type="text/babel" src="components/admin/AIAccuracyMonitor.js"></script>
+<script type="text/babel" src="components/admin/PredictivePolicing.js"></script>
+<script type="text/babel" src="components/admin/CustomReportBuilder.js"></script>
+<script type="text/babel" src="components/admin/AdminAnalytics.js"></script>
+
+<!-- 8. PAGES -->
+<script type="text/babel" src="pages/AIEngine.js"></script>
+<script type="text/babel" src="pages/HomePage.js"></script>
+<script type="text/babel" src="pages/Footer.js"></script>
+<script type="text/babel" src="pages/LoginModal.js"></script>
+
+<!-- 9. APP ROOT (renders last) -->
+<script type="text/babel" src="app/App.js"></script>
+
+</body>
+</html>
+
+<!--
+  ╔══════════════════════════════════════════════════════╗
+  ║   AP POLICE AI COMPLAINT PORTAL — MODULE LOADER     ║
+  ║   Each <script> is a self-contained module.         ║
+  ║   Load order matters — dependencies first.          ║
+  ╚══════════════════════════════════════════════════════╝
+
+  LOAD ORDER:
+  1. data/constants.js         — LANGS, TYPES, seed data, officers, locations
+  2. utils/helpers.js          — getSLAStatus, sendSMSWA, seededRand, getDistrictData
+  3. components/ui-components.js — Avatar, Notif, badges, StatusTracker, StarRating
+  4. components/modals/*       — All officer action modals
+  5. components/officer/*      — OfficerDashboard, OfficersByLocation
+  6. components/citizen/*      — WAPanel, CitizenPortal
+  7. components/admin/*        — All 8 admin analytics modules + AdminAnalytics
+  8. pages/*                   — AIEngine, HomePage, Footer, LoginModal
+  9. app/App.js                — Root App component + ReactDOM.render
+-->
+
+<!-- 1. DATA & CONSTANTS -->
+<script type="text/babel" src="data/constants.js"></script>
+
+<!-- 2. UTILITIES -->
+<script type="text/babel" src="utils/helpers.js"></script>
+
+<!-- 3. REUSABLE UI COMPONENTS -->
+<script type="text/babel" src="components/ui-components.js"></script>
+
+<!-- 4. MODALS -->
+<script type="text/babel" src="components/modals/EvidenceViewerModal.js"></script>
+<script type="text/babel" src="components/modals/FIRModal.js"></script>
+<script type="text/babel" src="components/modals/OfficerMessaging.js"></script>
+<script type="text/babel" src="components/modals/WitnessCoordModal.js"></script>
+<script type="text/babel" src="components/modals/ReassignModal.js"></script>
+<script type="text/babel" src="components/modals/NotificationModal.js"></script>
+<script type="text/babel" src="components/modals/SLAAlerts.js"></script>
+<script type="text/babel" src="components/modals/StatusNotesPanel.js"></script>
+
+<!-- 5. OFFICER COMPONENTS -->
+<script type="text/babel" src="components/officer/OfficersByLocation.js"></script>
+<script type="text/babel" src="components/officer/OfficerDashboard.js"></script>
+
+<!-- 6. CITIZEN COMPONENTS -->
+<script type="text/babel" src="components/citizen/WAPanel.js"></script>
+<script type="text/babel" src="components/citizen/CitizenPortal.js"></script>
+
+<!-- 7. ADMIN ANALYTICS MODULES -->
+<script type="text/babel" src="components/admin/CommandDashboard.js"></script>
+<script type="text/babel" src="components/admin/AutomatedReports.js"></script>
+<script type="text/babel" src="components/admin/CrimeHeatmap.js"></script>
+<script type="text/babel" src="components/admin/OfficerPerformance.js"></script>
+<script type="text/babel" src="components/admin/TrendAnalysis.js"></script>
+<script type="text/babel" src="components/admin/AIAccuracyMonitor.js"></script>
+<script type="text/babel" src="components/admin/PredictivePolicing.js"></script>
+<script type="text/babel" src="components/admin/CustomReportBuilder.js"></script>
+<script type="text/babel" src="components/admin/AdminAnalytics.js"></script>
+
+<!-- 8. PAGES -->
+<script type="text/babel" src="pages/AIEngine.js"></script>
+<script type="text/babel" src="pages/HomePage.js"></script>
+<script type="text/babel" src="pages/Footer.js"></script>
+<script type="text/babel" src="pages/LoginModal.js"></script>
+
+<!-- 9. APP ROOT (renders last) -->
+<script type="text/babel" src="app/App.js"></script>
+
+</body>
+</html>
